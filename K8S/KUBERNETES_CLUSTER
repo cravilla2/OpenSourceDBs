@@ -1,0 +1,16 @@
+KUBERNETES CLUSTER (API Server on Port 6443)
+│
+├── CONTROL PLANE (The "Brain": Scheduler, Controller Manager, etcd)
+│
+└── WORKER NODES (The "Muscle": VMs or Physical Servers)
+     │
+     └── NAMESPACE (Logical grouping, e.g., "production")
+          │
+          └── DEPLOYMENT / STATEFULSET (Manages replicas & updates)
+               │
+               └── POD  <-- [SMALLEST K8S UNIT]
+                    ├── Shared Cluster IP & Port (e.g., 10.244.1.5:8080)
+                    ├── Shared Storage (Volumes)
+                    └── CONTAINERS (The actual running apps)
+                         ├── App Container (e.g., Node.js / Python API)
+                         └── Sidecar Container (Optional helper, e.g., Log collector)
